@@ -18,10 +18,27 @@
     </nav>
     <main>
         <h1>AMA</h1>
+        <section class="random">
+            <h3>Dice simulation</h3>
+            <label>
+                Dice Options
+                <select name="diceOptions" id="diceOptions">
+                    <option value="1">1'er</option>
+                    <option value="2">2'er</option>
+                    <option value="3">3'er</option>
+                    <option value="4">4'er</option>
+                    <option value="5">5'er</option>
+                    <option value="6">6'er</option>
+                </select>
+            </label>
+            <button id="rollDiceBtn">Roll</button>
+            <div id="rollDiceResult"></div>
+        </section>
     </main>
 
     <script>
-        
+        const diceOptions = document.getElementById("diceOptions")
+
     </script>
 </body>
 </html>
