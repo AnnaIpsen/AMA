@@ -18,10 +18,35 @@
     </nav>
     <main>
         <h1>AMA</h1>
+        <section class="pattern">
+            <h3>Pattern generator</h3>
+            <label>
+                Antal rækker:
+                <input type="number" id="rowsInput">
+            </label>
+            <button id="generatePatternButton">Generate</button>
+            <div id="patternContainer"></div>
+        </section>
     </main>
 
     <script>
-        
+        const rowsInput = document.getElementById("rowsInput")
+        const generatePatternButton = document.getElementById("generatePatternButton")
+        const patternContainer = document.getElementById("patternContainer")
+
+        generatePatternButton.addEventListener("click", () => {
+            for (let i = 0; i < Number(rowsInput.value); i++) {
+                const patternElement = document.createElement("p")
+                let patternContent = ""
+                    for (let j = 0; j < i + 1; j++) {
+                        patternContent += "*"
+                    }
+                patternElement.innerHTML = `${patternContent}`
+                patternContainer.appendChild(patternElement)
+            }
+        })
+
+
     </script>
 </body>
 </html>
