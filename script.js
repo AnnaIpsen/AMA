@@ -1,4 +1,2 @@
-console.log("Hello world!")
-console.log("Hello world!")
-console.log("Hello world!")
-console.log("Hello world!")
+const messages = ["O", "M", "G"]
+messages.forEach(message => console.log(message))
