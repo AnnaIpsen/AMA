@@ -17,11 +17,41 @@
         <a href="/random.html">Terning</a>
     </nav>
     <main>
-        <h1>AMA</h1>
+        <h1>AMA - regnemaskine</h1>
+        <section>
+            <p>Summen af alle tal op til 1000, hvor min. ét af tallene går op i</p>
+            <input type="number" id="input1">
+            <input type="number" id="input2">
+            <input type="submit" id="submit">
+            <p id="sum"></p>
+        </section>
     </main>
 
     <script>
+        let submit = document.getElementById("submit")
+        let output = document.getElementById('sum')
+        let sum = 0
+
+        function run () {
+            let num1 = Number(document.getElementById("input1").value)
+            let num2 = Number(document.getElementById("input2").value)
+           
+            for (let i = 0; i < 1000; i++) {
+                if (i % num1 === 0 || i % num2 === 0) {
+                    sum = sum + i
+                    console.log('if')
+                }
+                console.log(sum)
+            }   
+            output.innerHTML = sum
+        }
+
+        submit.addEventListener('click', run )
+
         
+
+
+
     </script>
 </body>
 </html>
