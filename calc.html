@@ -18,10 +18,37 @@
     </nav>
     <main>
         <h1>AMA</h1>
+        <section class="random">
+            <h3>Common Multiple</h3>
+            <label for="firstNumberInput"></label><input type="number" id="firstNumberInput">
+            <label for="secondNumberInput"></label><input type="number" id="secondNumberInput">
+            <button id="findNumberBtn">Find lowest common number</button>
+            <div id="findNumberResult"></div>
+        </section>
     </main>
 
     <script>
-        
+        const firstNumberInput = document.getElementById("firstNumberInput")
+        const secondNumberInput = document.getElementById("secondNumberInput")
+        const findNumberBtn = document.getElementById("findNumberBtn")
+        const findNumberResult = document.getElementById("findNumberResult")
+
+        findNumberBtn.addEventListener("click", () => {
+            const firstNumber = Number(firstNumberInput.value)
+            const secondNumber = Number(secondNumberInput.value)
+            //Hvis begge tal er samme, return en af dem
+            if (firstNumber === secondNumber) return findNumberResult.innerHTML = `Lowest common number is: ${firstNumber}`
+
+            const lowestNumber = Math.min(firstNumber, secondNumber)
+            const highestNumber = Math.max(firstNumber, secondNumber)
+
+            let commonNumber = highestNumber
+            while (commonNumber % lowestNumber !== 0) {
+                commonNumber += highestNumber
+            }
+
+            return findNumberResult.innerHTML = `Lowest common number is: ${commonNumber}`
+        })
     </script>
 </body>
 </html>
