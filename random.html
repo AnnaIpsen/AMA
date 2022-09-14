@@ -31,6 +31,7 @@
                     <option value="6">6'er</option>
                 </select>
             </label>
+            <label for="rollAmountInput">Amount of rolls</label><input type="number" id="rollAmountInput">
             <button id="rollDiceBtn">Roll</button>
             <div id="rollDiceResult"></div>
         </section>
@@ -38,7 +39,17 @@
 
     <script>
         const diceOptions = document.getElementById("diceOptions")
+        const rollDiceBtn = document.getElementById("rollDiceBtn")
+        const rollDiceResult = document.getElementById("rollDiceResult")
+        const rollAmountInput = document.getElementById("rollAmountInput")
 
+        rollDiceBtn.addEventListener("click", () => {
+            const rollResults = []
+            for (let i = 0; i < rollAmountInput.value; i++) {
+                rollResults.push(Math.floor(Math.random() * 6 +1) )
+            }
+            rollDiceResult.innerHTML = `${diceOptions.value} got rolled ${rollResults.filter(result => result === Number(diceOptions.value)).length} times`
+        })
     </script>
 </body>
 </html>
